@@ -1,20 +1,23 @@
 #!/usr/bin/python3
-'''This script takes in a letter and sends a POST request
-to http://0.0.0.0:5000/search_user with the letter as a parameter
-'''
-import sys
+""" A Python script that:
+- takes in a URL,
+- sends a request to the URL and displays the value of the variable
+- X-Request-Id in the response header.
+"""
 import requests
+import sys
+
 
 if __name__ == "__main__":
-    letter = "" if len(sys.argv) == 1 else sys.argv[1]
-    payload = {"q": letter}
+    res = "" if len(sys.argv) == 1 else sys.argv[1]
+    payload = {'q': res}
 
-    r = requests.post("http://0.0.0.0:5000/search_user", data=payload)
+    req = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     try:
-        response = r.json()
+        response = req.json()
         if response == {}:
             print("No result")
         else:
-            print("[{}] {}".format(response.get("id"), response.get("name")))
+            print("[{}] {}".format(response.get('id'), response.get('name')))
     except ValueError:
         print("Not a valid JSON")
