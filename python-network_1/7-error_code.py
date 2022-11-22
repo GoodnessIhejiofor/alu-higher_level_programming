@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-'''This script takes in a URL, sends a request to the URL,
-and displays the body of the response.
-'''
-import sys
+""" A Python script that:
+- takes in a URL,
+- sends a POST request to the passed URL with the email as a parameter,
+- and displays the body of the response.
+"""
 import requests
+import sys
+
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    res = sys.argv[1]
+    req = requests.get(res)
 
-    r = requests.get(url)
-    if r.status_code >= 400:
-        print("Error code: {}".format(r.status_code))
+    if req.status_code >= 400:
+        print("Error code: {}".format(req.status_code))
     else:
-        print(r.text)
+        print(req.text)
