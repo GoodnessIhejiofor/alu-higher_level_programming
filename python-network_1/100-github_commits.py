@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""lists the 10 most recent commits on a given GitHub repository.
-"""
+'''This script lists the 10 most recent commits on a given GitHub repository'''
 import sys
 import requests
-
 
 if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(
@@ -18,4 +16,3 @@ if __name__ == "__main__":
                 commits[i].get("commit").get("author").get("name")))
     except IndexError:
         pass
-    
