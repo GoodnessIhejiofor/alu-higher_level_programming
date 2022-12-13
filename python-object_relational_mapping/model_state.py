@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-contains the class definition of a State and an instance Base
-"""
+"""Script that lists all State objects from the database hbtn_0e_6_usa"""
 
 import sqlalchemy
 from sqlalchemy import Column, Integer, String
@@ -11,7 +9,7 @@ Base = declarative_base()
 
 
 class State(Base):
-    """Representation of a state"""
+    """class state"""
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
