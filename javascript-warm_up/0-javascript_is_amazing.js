@@ -1,3 +1,3 @@
 #!/usr/bin/node
-const myVar = 'JavaScript is amazing';
+const myVar = './0-javascript_is_amazing.js';
 console.log(myVar);
